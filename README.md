@@ -12,3 +12,5 @@ https://www.ths-greifswald.de/forscher/
 FHIR Shorthand Spec:
 http://hl7.org/fhir/uv/shorthand/
 
+Firely Terminal:
+https://simplifier.net/downloads/firely-terminal

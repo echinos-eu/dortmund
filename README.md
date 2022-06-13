@@ -8,3 +8,7 @@ Slides:
 
 Pseudonymisierungstools Greifswald:
 https://www.ths-greifswald.de/forscher/
+
+FHIR Shorthand Spec:
+http://hl7.org/fhir/uv/shorthand/
+

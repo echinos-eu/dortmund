@@ -23,3 +23,5 @@ dependencies:
     uri: http://echinos.eu/fhir/ImplementationGuide/testUFP
     version: 0.1.0
 ```
+UFP Planet Extension URL:
+`Alias: $ufpPlanet = http://fhir.ufp/StructureDefinition/planet`

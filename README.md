@@ -14,3 +14,12 @@ http://hl7.org/fhir/uv/shorthand/
 
 Firely Terminal:
 https://simplifier.net/downloads/firely-terminal
+
+Genutzer IG in sushi:
+```
+dependencies:
+  de.test.ufp:
+    id: de.test.ufp
+    uri: http://echinos.eu/fhir/ImplementationGuide/testUFP
+    version: 0.1.0
+```

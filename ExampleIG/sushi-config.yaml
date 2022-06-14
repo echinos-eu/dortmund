@@ -24,11 +24,11 @@ publisher:
 # package id and the value is the version (or dev/current). For advanced
 # use cases, the value can be an object with keys for id, uri, and version.
 #
-dependencies:
-  de.test.ufp:
-    id: de.test.ufp
-    uri: http://echinos.eu/fhir/ImplementationGuide/testUFP
-    version: 0.1.0
+#dependencies:
+#  de.test.ufp:
+#    id: de.test.ufp
+#    uri: http://echinos.eu/fhir/ImplementationGuide/testUFP
+#    version: 0.1.0
 #   hl7.fhir.us.core: 3.1.0
 #
 #

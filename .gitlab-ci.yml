@@ -1,0 +1,53 @@
+image: docker.intern.molit.eu/ig-pipeline
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+
+stages:
+  - setup
+  - build
+  - deploy
+
+build:
+  stage: build
+  before_script:
+    - export _JAVA_OPTIONS="-Xmx11g -Xms4g"
+  script:
+    #exitcode aktuell noch 127, Fehler maskiert wegen BUG in Firely Terminal pw: 14.11.2021
+    - fhir install packages/molit.fhir.common-terminology-0.2.0.tgz --file
+    - ls -lahs /root/.fhir/packages/
+    - npm install -g fsh-sushi
+    - sushi
+    - chmod +x ./_updatePublisher.sh
+    - chmod +x ./_genonce.sh
+    - ./_updatePublisher.sh -y
+    - ./_genonce.sh
+  artifacts:
+    name: "$CI_PROJECT_NAME"
+    paths:
+      - output/
+  tags: 
+    - docker
+
+pages:
+  stage: deploy
+  script:
+    - mkdir public
+    - cp -r output/* public
+    - cp public/index.html public/404.html
+  artifacts:
+    paths:
+      - public
+  when: manual
+  tags:
+    - docker
+
+publish-nexus:
+  stage: deploy    
+  script:
+    - npm config set registry https://nexus.intern.molit.eu/repository/npm-internal/
+    - npm config set //nexus.intern.molit.eu/repository/npm-internal/:_authToken ${NPM_TOKEN}
+    - npm publish ./output/package.tgz
+  when: manual
+  tags: 
+    - docker

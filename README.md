@@ -25,3 +25,6 @@ dependencies:
 ```
 UFP Planet Extension URL:
 `Alias: $ufpPlanet = http://fhir.ufp/StructureDefinition/planet`
+
+JPA Starter Project:
+https://github.com/hapifhir/hapi-fhir-jpaserver-starter

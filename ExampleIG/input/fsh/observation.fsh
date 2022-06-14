@@ -41,10 +41,11 @@ Id: injury
 * component[xPos]
   * code = $NCIT#C44477 "X-Coordinate"
   * value[x] only integer
+  * valueInteger 1..1 MS
 * component[yPos]
   * code = $NCIT#C44478 "Y-Coordinate"
   * value[x] only integer
-
+  * valueInteger 1..1 MS
 * derivedFrom MS
   * ^slicing.discriminator.type = #profile
   * ^slicing.discriminator.path = "resolve()"
@@ -54,3 +55,23 @@ Id: injury
 * derivedFrom[injury-location-graphic] only Reference(InjuryLocationGraphic)
 * method 1..1 MS
 * method from DocumentationSchemaVS
+
+Instance: ExampleInjury
+InstanceOf: Injury
+Usage: #example
+Title: "ExampleInjury"
+* status = #final
+* bodySite = InjuryLocation#leg 
+* method = DocumentationSchema#Erwachsener
+* derivedFrom = Reference(InjuryLocationGraphicExample)
+* component[xPos]
+  * valueInteger = 100
+* component[yPos]
+  * valueInteger = 100
+
+Instance: InjuryLocationGraphicExample
+InstanceOf: InjuryLocationGraphic
+Usage: #example
+* type.coding[media-type] = $media-type#image
+* status = #completed
+* content.contentType = #application/jpeg
